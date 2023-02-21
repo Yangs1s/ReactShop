@@ -1,0 +1,22 @@
+import { Routes, Route } from 'react-router-dom'
+import Main from '@/pages/Main'
+import Layout from '@/components/Common/Layout/Layout'
+import Accessory from '@/pages/Accessory'
+import Fashion from '@/pages/Fashion'
+import Digital from '@/pages/Digital'
+import Detail from '@/components/Detail/Detail'
+const Router = () => {
+    return (
+        <Layout>
+            <Routes>
+                <Route path="/" element={<Main />} />
+                <Route path={'/accessory'} element={<Accessory />}></Route>
+                <Route path={'/fashion'} element={<Fashion />}></Route>
+                <Route path={'/digital'} element={<Digital />}></Route>
+                <Route path={'/products/:id'} element={<Detail />} />
+            </Routes>
+        </Layout>
+    )
+}
+
+export default Router
