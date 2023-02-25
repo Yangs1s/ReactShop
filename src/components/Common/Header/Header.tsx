@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { CiDark, CiSearch } from 'react-icons/ci'
-import { FaSun } from 'react-icons/fa'
+import { FaCartPlus, FaSun } from 'react-icons/fa'
 import SearchItem from './SearchItem'
+import { useCart } from '@/zustand/useCart'
 
 const Header = () => {
     const [theme, setTheme] = useState(() =>
@@ -59,6 +60,15 @@ const Header = () => {
                 </Link>
                 <Link to="digital" className="m-2">
                     <span className="text-xl text-white font-extrabold">디지털</span>
+                </Link>
+                <Link to="cart" className="m-2 relative">
+                    <FaCartPlus className="text-2xl text-white font-extrabold" />
+                    {/* <span
+                        id={'count'}
+                        className="absolute bg-red-500 w-5 h-5 rounded-full top-[-10px] right-[-10px] text-white text-center text-xs"
+                    >
+                        s
+                    </span> */}
                 </Link>
             </div>
         </header>

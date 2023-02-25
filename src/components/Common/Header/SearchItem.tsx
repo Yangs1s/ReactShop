@@ -37,7 +37,7 @@ const SearchItem = () => {
                     type="text"
                 />
                 {searchValue.length > 0 ? (
-                    <ul className="flex flex-col overflow-y-scroll h-[200px] absolute top-[65px] w-96 bg-white z-10">
+                    <ul className="flex flex-col overflow-y-scroll h-[200px] absolute top-[65px] w-96 bg-white z-10 text-black">
                         {filteredItem.map((item) => (
                             <Link
                                 to={`/products/${item[1].id}`}

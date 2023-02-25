@@ -3,13 +3,14 @@ import React, { useEffect, useState } from 'react'
 import CardLayout from '../Common/CardLayout'
 import Skeleton from '../Common/Skeleton'
 import { Link } from 'react-router-dom'
+import Title from '../Common/Title/Title'
 
 export default function Fashion() {
     const list = useProducts((state) => state.list)
     const fetch = useProducts((state) => state.fetchModes)
     const [loading, setLoading] = useState<boolean>(false)
 
-    const LIST_LENGTH = Object.entries(list).length
+    const LIST_LENGTH = 10
 
     useEffect(() => {
         setLoading(true)
@@ -24,23 +25,23 @@ export default function Fashion() {
     }, [])
     return (
         <section className="w-screen p-32">
-            <p className="pl-32">{'HOME' + '>' + 'FASHION'}</p>
-            <h1 className="font-extrabold mb-6 text-center"> FASHION </h1>
+            <p className="text-center mb-3">{'HOME' + '>' + 'FASHION'}</p>
+            <Title> FASHION </Title>
             {loading ? (
-                <ul className="grid grid-cols-3 gap-3 w-max m-auto">
+                <ul className="grid grid-cols-3 gap-3 w-max m-auto mt-5">
                     {Array.from({ length: LIST_LENGTH }, (v, i) => i).map((idx) => {
                         return <Skeleton key={idx} />
                     })}
                 </ul>
             ) : (
                 <div className="">
-                    <ul className="grid grid-cols-3 gap-3 w-max m-auto">
+                    <ul className="grid grid-cols-3 gap-3 w-max m-auto mt-5">
                         {Object.entries(list).map(([key, value]) => {
                             const condition =
                                 value.category === "men's clothing" ||
                                 value.category === "women's clothing"
                             return condition ? (
-                                <Link to={`/products/${value.id}`} state={value}>
+                                <Link to={`/products/${value.id}`} state={value} key={key}>
                                     <CardLayout
                                         price={value.price}
                                         title={value.title}
