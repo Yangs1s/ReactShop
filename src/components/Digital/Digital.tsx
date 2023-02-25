@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import CardLayout from '../Common/CardLayout'
 import Skeleton from '../Common/Skeleton'
 import { Link } from 'react-router-dom'
+import Title from '../Common/Title/Title'
 
 export default function Digital() {
     const list = useProducts((state) => state.list)
@@ -24,22 +25,22 @@ export default function Digital() {
     }, [])
     return (
         <section className="w-screen p-32">
-            <p className="pl-32">{'HOME' + '>' + 'DIGITAL'}</p>
-            <h1 className="font-extrabold mb-6 text-center"> DIGITAL </h1>
+            <p className="text-center mb-3">{'HOME' + '>' + 'DIGITAL'}</p>
+            <Title> DIGITAL </Title>
             {loading ? (
-                <ul className="grid grid-cols-3 gap-3 w-max m-auto">
+                <ul className="grid grid-cols-3 gap-3 w-max m-auto mt-5">
                     {Array.from({ length: 6 }, (v, i) => i).map((idx) => {
                         return <Skeleton key={idx} />
                     })}
                 </ul>
             ) : (
                 <div className="">
-                    <ul className="grid grid-cols-3 gap-3 w-max m-auto">
+                    <ul className="grid grid-cols-3 gap-3 w-max m-auto mt-5">
                         {Object.entries(list).map(([key, value]) => {
                             const condition = value.category === 'electronics'
                             return (
                                 condition && (
-                                    <Link to={`/products/${value.id}`} state={value}>
+                                    <Link to={`/products/${value.id}`} state={value} key={key}>
                                         <CardLayout
                                             price={value.price}
                                             title={value.title}
