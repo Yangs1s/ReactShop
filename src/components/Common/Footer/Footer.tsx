@@ -5,9 +5,9 @@ import { RiVisaLine } from 'react-icons/ri'
 import { card } from '@/data/cardData'
 const Footer = () => {
     return (
-        <footer className="bg-black h-48 flex justify-center items-center">
+        <footer className="bg-black desktop:h-48 flex justify-center items-center mobile:w-full mobile:h-42 mobile:p-4 tablet:h-42">
             <div className="flex flex-col">
-                <ul className="flex justify-center mb-3">
+                <ul className="flex justify-center mb-3 mobile:">
                     {card.map((item) => (
                         <li className="mx-1" key={item.id}>
                             <img src={item.url} alt={item.name} />

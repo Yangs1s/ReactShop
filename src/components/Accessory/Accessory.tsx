@@ -23,18 +23,18 @@ export default function Accessory() {
         }, 3000)
     }, [])
     return (
-        <section className="w-screen p-32">
+        <section className="desktop:w-screen desktop:p-32 mobile:w-screen mobile:p-0 tablet:w-screen">
             <p className="text-center mb-3">{'HOME' + '>' + 'ACCESSORY'}</p>
             <Title> ACCESSORY </Title>
             {loading ? (
-                <ul className="grid grid-cols-4 gap-3 w-max m-auto mt-5">
+                <ul className="grid grid-cols-2 gap-3 w-max m-auto mt-5">
                     {Array.from({ length: LIST_LENGTH }, (v, i) => i).map((idx) => {
                         return <Skeleton key={idx} />
                     })}
                 </ul>
             ) : (
                 <div className="">
-                    <ul className="grid grid-cols-4 gap-3 w-max m-auto mt-5">
+                    <ul className="grid grid-cols-2 gap-3 w-max m-auto mt-5">
                         {Object.entries(list).map(([key, value]) => {
                             const condition = value.category === 'jewelery'
                             return (

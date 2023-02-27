@@ -44,8 +44,8 @@ const Cart = () => {
                 <h1 className="text-4xl font-extrabold w-max flex justify-center m-auto my-12">
                     CART
                 </h1>
-                <table className="m-auto w-max mb-12">
-                    <thead className="border-[3px] w-[100%] border-blue-400 dark:border-red-400">
+                <table className="m-auto desktop:w-max tablet:w-3/4 mobile:w-3/4 mobile:mx-auto mb-12">
+                    <thead className="border-[3px] desktop:w-[100%] border-blue-400 dark:border-red-400">
                         <tr className="w-max ">
                             {Header.map((item) => (
                                 <th
@@ -57,35 +57,37 @@ const Cart = () => {
                             ))}
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody className="w-auto h-auto">
                         {state.map((item) => (
                             <tr
-                                className="border-[3px] border-blue-400 dark:border-red-400 text-center"
+                                className="border-[3px] border-blue-400 dark:border-red-400 text-center mobile:h-[100px] "
                                 key={item.id}
                             >
-                                <td className="border-[3px] dark:border-red-400 border-blue-400 w-52 h-52 p-3">
+                                <td className="border-[3px] dark:border-red-400 border-blue-400 desktop:w-52 desktop:h-52 desktop:p-3 mobile:p-2">
                                     <img
                                         src={item.image}
                                         alt={'product_img'}
-                                        className="h-52 w-52"
+                                        className="desktop:h-52 desktop:w-52 mobile:w-auto mobile:h-auto"
                                     />
                                 </td>
-                                <td className="border-[3px] dark:border-red-400 border-blue-400 w-52 h-32 p-2">
+                                <td className="border-[3px] mobile:text-xs dark:border-red-400 border-blue-400 w-52 h-32 p-2">
                                     {item.title}
                                 </td>
                                 <td className="border-[3px] dark:border-red-400 border-blue-400 w-32 text-lg">
                                     {item.price * item.amount}$
                                 </td>
-                                <td className="w-36 h-52 flex items-center justify-center">
+                                <td className="w-36 h-52 flex items-center justify-center mobile:w-auto mobile:h-auto mobile:m-1 mobile:my-10">
                                     <button
-                                        className="w-8 h-8 bg-slate-700 rounded-sm flex justify-center items-center"
+                                        className="w-8 h-8 bg-slate-700 rounded-sm flex justify-center items-center mobile:w-4 mobile:h-4"
                                         onClick={() => handleAddToCart(item)}
                                     >
                                         <span>+</span>
                                     </button>
-                                    <span className="m-3 font-semibold text-lg">{item.amount}</span>
+                                    <span className="m-3 font-semibold text-lg mobile:text-sm">
+                                        {item.amount}
+                                    </span>
                                     <button
-                                        className="w-8 h-8 bg-slate-700 rounded-sm flex justify-center items-center"
+                                        className="w-8 h-8 bg-slate-700 rounded-sm flex justify-center items-center mobile:w-4 mobile:h-4"
                                         onClick={() => handleRemoveFromCart(item.id)}
                                     >
                                         <span className="">-</span>
@@ -95,9 +97,12 @@ const Cart = () => {
                         ))}
                     </tbody>
                     <tfoot className="border-[3px] border-blue-400 dark:border-red-400 w-[100%]">
-                        <h1 className="text-right ml-auto w-[100%] font-bold text-2xl flex p-3">
-                            TOTAL: ${ToTal(state).toFixed(2)}
-                        </h1>
+                        <tr>
+                            <th>TOTALS:</th>
+                            <td className="text-right ml-auto w-[100%] font-bold text-2xl flex p-3">
+                                ${ToTal(state).toFixed(2)}
+                            </td>
+                        </tr>
                     </tfoot>
                 </table>
             </div>
