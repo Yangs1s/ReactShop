@@ -6,8 +6,6 @@ import { Link } from 'react-router-dom'
 import Button from '../Common/Button/Button'
 import { useCart } from '@/zustand/useCart'
 import { ProductsType } from '@/typing'
-import useStore from '@/zustand/useTest'
-import useCartItems from '@/zustand/useTest'
 
 export type CartItemType = {
     id: number
