@@ -35,7 +35,7 @@ export default function Digital() {
                 </ul>
             ) : (
                 <div className="">
-                    <ul className="grid grid-cols-3 gap-3 w-max m-auto mt-5">
+                    <ul className="grid grid-cols-3 gap-3 w-max m-auto mt-5 mobile:grid-cols-1 tablet:grid-cols-2">
                         {Object.entries(list).map(([key, value]) => {
                             const condition = value.category === 'electronics'
                             return (
