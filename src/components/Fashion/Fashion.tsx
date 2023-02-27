@@ -35,7 +35,7 @@ export default function Fashion() {
                 </ul>
             ) : (
                 <div className="">
-                    <ul className="grid laptop:grid-cols-3 mobile:grid-cols-2 gap-3 w-max m-auto mt-5">
+                    <ul className="grid laptop:grid-cols-3 tablet:grid-cols-2 mobile:grid-cols-1 gap-3 w-max m-auto mt-5">
                         {Object.entries(list).map(([key, value]) => {
                             const condition =
                                 value.category === "men's clothing" ||

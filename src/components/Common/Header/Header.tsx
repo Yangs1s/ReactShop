@@ -16,6 +16,8 @@ interface ValueType {
 const Header = () => {
     const hover = useHover((state) => state.isHover)
     const setHover = useHover((state) => state.setHover)
+
+    // dark Mode
     const [theme, setTheme] = useState(() =>
         typeof window !== 'undefined'
             ? localStorage.getItem('theme') === 'dark'
@@ -42,8 +44,8 @@ const Header = () => {
             setTheme('dark')
         }
     }
-
-    const [value, setValue] = useState<number>(0)
+    // width size 체크
+    const [value, setValue] = useState<number>(DESKTOP_WIDTH)
 
     const handleSize = () => {
         setValue(window.innerWidth)
@@ -55,6 +57,7 @@ const Header = () => {
             window.removeEventListener('resize', handleSize)
         }
     }, [])
+
     const cartItems = useCart((state) => state.cartItems)
     const totalQuantity = (listItem: CartItemProps[]) => {
         return listItem.reduce((acc, cur) => acc + cur.quantity, 0)
@@ -84,7 +87,7 @@ const Header = () => {
                                 <FaSun className="text-yellow-400" />
                             )}
                         </button>
-                        <div className={`${value <= DESKTOP_WIDTH ? 'hidden' : 'visible'}`}>
+                        <div className={`${value < DESKTOP_WIDTH ? 'hidden' : 'visible'}`}>
                             <Link to="fashion" className="m-2">
                                 <span className="text-xl text-white font-extrabold">패션</span>
                             </Link>

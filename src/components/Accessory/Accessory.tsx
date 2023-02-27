@@ -34,7 +34,7 @@ export default function Accessory() {
                 </ul>
             ) : (
                 <div className="">
-                    <ul className="grid grid-cols-2 gap-3 w-max m-auto mt-5 mobile:grid-cols-1">
+                    <ul className="grid desktop:grid-cols-2 gap-3 w-max m-auto mt-5 mobile:grid-cols-1">
                         {Object.entries(list).map(([key, value]) => {
                             const condition = value.category === 'jewelery'
                             return (

@@ -83,12 +83,14 @@ export default function Main() {
                             </ul>
                         ) : (
                             Object.entries(accessory).map(([key, value]) => (
-                                <CardLayout
-                                    price={value[1].price}
-                                    title={value[1].title}
-                                    image={value[1].image}
-                                    key={value[1].id}
-                                />
+                                <Link to={`/products/${value[1].id}`} state={value[1]}>
+                                    <CardLayout
+                                        price={value[1].price}
+                                        title={value[1].title}
+                                        image={value[1].image}
+                                        key={value[1].id}
+                                    />
+                                </Link>
                             ))
                         )}
                     </ul>
@@ -107,12 +109,14 @@ export default function Main() {
                             Object.entries(digital)
                                 .slice(0, 4)
                                 .map(([key, value]) => (
-                                    <CardLayout
-                                        price={value[1].price}
-                                        title={value[1].title}
-                                        image={value[1].image}
-                                        key={value[1].id}
-                                    />
+                                    <Link to={`/products/${value[1].id}`} state={value[1]}>
+                                        <CardLayout
+                                            price={value[1].price}
+                                            title={value[1].title}
+                                            image={value[1].image}
+                                            key={value[1].id}
+                                        />
+                                    </Link>
                                 ))
                         )}
                     </ul>
@@ -130,12 +134,14 @@ export default function Main() {
                         ) : (
                             Object.entries(fashion).map(([key, value]) => {
                                 return (
-                                    <CardLayout
-                                        price={value[1].price}
-                                        title={value[1].title}
-                                        image={value[1].image}
-                                        key={value[1].id}
-                                    />
+                                    <Link to={`/products/${value[1].id}`} state={value[1]}>
+                                        <CardLayout
+                                            price={value[1].price}
+                                            title={value[1].title}
+                                            image={value[1].image}
+                                            key={value[1].id}
+                                        />
+                                    </Link>
                                 )
                             })
                         )}
