@@ -21,21 +21,21 @@ export default function Fashion() {
         }
         setTimeout(() => {
             setLoading(false)
-        }, 3000)
+        }, 5000)
     }, [])
     return (
-        <section className="desktop:w-screen desktop:p-32 mobile:w-screen mobile:p-0">
+        <section className="desktop:w-screen desktop:p-32 mobile:w-screen mobile:p-0 h-screen">
             <p className="text-center mb-3">{'HOME' + '>' + 'FASHION'}</p>
             <Title> FASHION </Title>
             {loading ? (
-                <ul className="grid laptop:grid-cols-3 mobile:grid-cols-2 gap-3 w-max m-auto mt-5">
+                <ul className="grid laptop:grid-cols-3 mobile:grid-cols-1 tablet:grid-cols-2 gap-3 w-max m-auto mt-5">
                     {Array.from({ length: LIST_LENGTH }, (v, i) => i).map((idx) => {
                         return <Skeleton key={idx} />
                     })}
                 </ul>
             ) : (
                 <div className="">
-                    <ul className="grid  laptop:grid-cols-3 mobile:grid-cols-2 gap-3 w-max m-auto mt-5">
+                    <ul className="grid laptop:grid-cols-3 mobile:grid-cols-2 gap-3 w-max m-auto mt-5">
                         {Object.entries(list).map(([key, value]) => {
                             const condition =
                                 value.category === "men's clothing" ||
