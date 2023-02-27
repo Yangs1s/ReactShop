@@ -3,17 +3,16 @@ import React from 'react'
 import { FaMinusCircle, FaPlusCircle } from 'react-icons/fa'
 
 const CartItem = () => {
-    let cartStorage: any = localStorage.getItem('cart')
-    const list: CartItemProps[] = JSON.parse(cartStorage)
     const cartItem = useCart((state) => state.cartItems)
     const addToCart = useCart((state) => state.addToCart)
     const removeFromCart = useCart((state) => state.removeFromCart)
     const increamentQunatity = useCart((state) => state.incrementCartItemQuantity)
     const decreamentQunatity = useCart((state) => state.decrementCartItemQuantity)
-
+    const allremove = useCart((state) => state.allRemove)
     const totalPrice = (listItem: CartItemProps[]) => {
         return listItem.reduce((acc, cur) => acc + cur.price * cur.quantity, 0)
     }
+
     return (
         <section className="h-screen mobile:w-[100%]">
             <h1 className="mobile:w-[100%] mobile:text-center text-3xl font-extrabold flex justify-center my-9">
@@ -56,6 +55,15 @@ const CartItem = () => {
                     <strong className="text-2xl">{totalPrice(cartItem)}</strong>
                 </div>
             </ul>
+
+            <div className="flex justify-center">
+                <button
+                    className="bg-slate-400 p-3 rounded-lg text-white dark:bg-slate-300"
+                    onClick={() => allremove()}
+                >
+                    CHECK OUT
+                </button>
+            </div>
         </section>
     )
 }

@@ -37,15 +37,19 @@ const SearchItem = () => {
                     type="text"
                 />
                 {searchValue.length > 0 ? (
-                    <ul className="flex flex-col overflow-y-scroll h-[200px] absolute top-[65px] w-96 bg-white z-10 text-black mobile:[140px]">
+                    <ul className="flex flex-col overflow-y-scroll h-[200px] absolute top-[65px] desktop:w-1/4 bg-white z-10 text-black mobile:p-2">
                         {filteredItem.map((item) => (
                             <Link
                                 to={`/products/${item[1].id}`}
                                 state={item[1]}
                                 onClick={() => setSearchValue('')}
                             >
-                                <li className="flex w-max h-[30px] mobile:text-xs" key={item[1].id}>
-                                    {item[1].title}
+                                <li
+                                    className="flex w-full h-auto mb-3 mobile:text-xs desktop:text-sm"
+                                    key={item[1].id}
+                                >
+                                    <p>{item[1].id}. &nbsp;</p>
+                                    <p className="text-ellipsis">{item[1].title}</p>
                                 </li>
                             </Link>
                         ))}

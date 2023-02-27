@@ -6,6 +6,7 @@ import { devtools, persist } from 'zustand/middleware'
 export interface State {
     cartItems: CartItemProps[]
     addToCart: (product: CartItemProps) => void
+    allRemove: () => void
     removeFromCart: (productId: number) => void
     incrementCartItemQuantity: (productId: number) => void
     decrementCartItemQuantity: (productId: number) => void
@@ -33,6 +34,14 @@ export const useCart = create<State>()(
                     } else {
                         // 카드가 비어있거나 선택한 아이템이 없으면 수량은 1로 추가
                         return { cartItems: [...state.cartItems, { ...product, quantity: 1 }] }
+                    }
+                }),
+            allRemove: () =>
+                set((state) => {
+                    if (confirm('결제하시겠습니까?')) {
+                        return { cartItems: [] }
+                    } else {
+                        return { cartItems: [...state.cartItems] }
                     }
                 }),
             removeFromCart: (productId) =>

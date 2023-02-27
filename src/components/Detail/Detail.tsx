@@ -48,17 +48,21 @@ export default function Detail() {
     //     localStorage.setItem('cartStorage', JSON.stringify(cartItems))
     // }, [cartItems])
     return (
-        <section className="w-screen h-screen ">
-            <span className=" m-12 flex">{`${location.state.category} > ${location.state.title}`}</span>
-            <div id={'container'} className="flex flex-col justify-center items-center p-5">
+        <section className="w-screen h-screen">
+            <span className="desktop:m-12 desktop:flex desktop:text-lg mobile:text-xs mobile:whitespace-nowrap mobile:m-3">{`${location.state.category} > ${location.state.title}`}</span>
+            <div id={'container'} className="flex flex-col justify-center items-center p-10">
                 <div
-                    className="flex w-[800px] h-[600px] justify-center items-center dark:border-white border-black border"
+                    className="flex desktop:flex-row desktop:w-[800px] desktop:h-[600px] justify-center items-center dark:border-white border-black border mobile:w-full mobile:flex-col"
                     id={'wrapper'}
                 >
-                    <figure className=" mr-10">
-                        <img src={location.state.image} alt="img" className="w-[420px] h-[400px]" />
+                    <figure className="desktop:mr-10 desktop:h-auto mobile:m-0 mobile:h-52 mobile:mt-2">
+                        <img
+                            src={location.state.image}
+                            alt="img"
+                            className="desktop:w-[420px] desktop:h-[400px] mobile:w-full mobile:h-full"
+                        />
                     </figure>
-                    <div className="flex flex-col justify-center w-72 h-[100%]">
+                    <div className="flex flex-col justify-center w-72 mobile:mt-10 ">
                         <span id={'title'} className="text-2xl font-semibold">
                             {location.state.title}
                         </span>
