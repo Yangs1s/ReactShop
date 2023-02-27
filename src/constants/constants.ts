@@ -5,3 +5,5 @@ export const ACCESSORY_URL = '/assets/accessory.webp'
 
 export const GITHUB_URL = 'https://github.com/Yangs1s'
 export const MAIL_URL = 'sung5355@naver.com'
+
+export const DESKTOP_WIDTH = 1242

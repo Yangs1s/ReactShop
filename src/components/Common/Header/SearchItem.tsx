@@ -28,23 +28,23 @@ const SearchItem = () => {
 
     return (
         <>
-            <div className="m-auto flex w-96 h-max">
+            <div className=" flex desktop:m-auto desktop:w-96 mobile:m-1 mobile:w-[140px] tablet:w-[300px] h-max">
                 <input
-                    className="h-12 w-96 text-black pl-3"
+                    className="h-12 w-[100%] text-black pl-3 ml-2"
                     placeholder="물건 찾기"
                     value={searchValue}
                     onChange={onChangeSearch}
                     type="text"
                 />
                 {searchValue.length > 0 ? (
-                    <ul className="flex flex-col overflow-y-scroll h-[200px] absolute top-[65px] w-96 bg-white z-10 text-black">
+                    <ul className="flex flex-col overflow-y-scroll h-[200px] absolute top-[65px] w-96 bg-white z-10 text-black mobile:[140px]">
                         {filteredItem.map((item) => (
                             <Link
                                 to={`/products/${item[1].id}`}
                                 state={item[1]}
                                 onClick={() => setSearchValue('')}
                             >
-                                <li className="flex w-max  h-[30px]" key={item[1].id}>
+                                <li className="flex w-max h-[30px] mobile:text-xs" key={item[1].id}>
                                     {item[1].title}
                                 </li>
                             </Link>

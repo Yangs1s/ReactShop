@@ -24,11 +24,11 @@ export default function Digital() {
         }, 3000)
     }, [])
     return (
-        <section className="w-screen p-32">
+        <section className="desktop:w-screen desktop:p-32 mobile:w-screen mobile:p-0">
             <p className="text-center mb-3">{'HOME' + '>' + 'DIGITAL'}</p>
             <Title> DIGITAL </Title>
             {loading ? (
-                <ul className="grid grid-cols-3 gap-3 w-max m-auto mt-5">
+                <ul className="grid laptop:grid-cols-3 gap-3 w-max m-auto mt-5 mobile:grid-cols-1">
                     {Array.from({ length: 6 }, (v, i) => i).map((idx) => {
                         return <Skeleton key={idx} />
                     })}
